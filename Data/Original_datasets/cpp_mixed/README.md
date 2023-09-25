@@ -13,7 +13,7 @@
     [2] Hansen M., Kilk K. Langel U. Predicting cell-penetrating peptides. Advanced Drug Delivery Reviews (2008),
         60 (4-5): https://doi.org/10.1016/j.addr.2007.09.003
     [3] Hällbrink M., Kilk K., Elmquist A., Lundberg P., Lindgren M., Jiang Y., Pooga M., Soomets U., Langel U., 
-        Prediction of Cell-Penetrating Peptides. International Journal of Peptide Research and Therapeuti (2005), 11: 
+        Prediction of Cell-Penetrating Peptides. International Journal of Peptide Research and Therapeutics (2005), 11: 
         https://doi.org/10.1007/s10989-005-9393-1
         
 ##### Summary
