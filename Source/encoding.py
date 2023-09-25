@@ -38,6 +38,7 @@ def encode_all_datasets_var():
     datasets_list = list(datasets_folder.iterdir())
     datasets_list = [str(path).split("\\")[-1] for path in datasets_list]
 
+
     encodings_path = os.path.join('.', 'CMANGOES-2.0', 'Data', 'Encodings')
     if os.path.exists(encodings_path) == False:
         os.mkdir(encodings_path)
@@ -47,10 +48,13 @@ def encode_all_datasets_var():
         smiles_path = os.path.join(dataset, 'seqs.smiles')
         dataset_filename = os.path.basename(dataset)
         encoding_data_path = os.path.join(encodings_path, dataset_filename)
+
         if os.path.exists(encoding_data_path) == False:
             os.mkdir(encoding_data_path)
-
-            smiles_list = cenact.convert_fasta_to_smiles(fasta_path, smiles_path)
+            if os.path.exists(smiles_path) == False:
+                smiles_list = cenact.convert_fasta_to_smiles(fasta_path, smiles_path)
+            else:
+                smiles_list = cenact.get_smiles_list(smiles_path)
 
             for level in [1,2]:
                 for alphabet_mode in ['without_hydrogen', 'with_hydrogen', 'data_driven']:
@@ -85,7 +89,10 @@ def encode_all_datasets_parallel():
         if os.path.exists(encoding_data_path) == False:
             os.mkdir(encoding_data_path)
 
-        smiles_list = cenact.convert_fasta_to_smiles(fasta_path, smiles_path)
+        if os.path.exists(smiles_path) == False:
+            smiles_list = cenact.convert_fasta_to_smiles(fasta_path, smiles_path)
+        else:
+            smiles_list = cenact.get_smiles_list(smiles_path)
 
         for level in [1,2]:
             for alphabet_mode in ['without_hydrogen', 'with_hydrogen', 'data_driven']:

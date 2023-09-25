@@ -18,7 +18,7 @@ proba_class1_df = pd.DataFrame(np.nan, index=datasets_list, columns=range(50))
 def get_splits(dataset_size):
     return int(np.round(dataset_size / (0.2 * dataset_size)))
 
-for level in [1, 2]:
+for level in [2]:
     for alphabet_mode in ['without_hydrogen', 'with_hydrogen', 'data_driven']:
         for data_idx in range(len(datasets_list)):
             dataset = datasets_list[data_idx]
@@ -39,7 +39,7 @@ for level in [1, 2]:
             for i, (train_index, test_index) in enumerate(cv.split(X, y)):
                 X_train, y_train = X.iloc[train_index,:], y[train_index]
                 X_test, y_test = X.iloc[test_index,:], y[test_index]
-                rfc = RandomForestClassifier(n_jobs=-1, n_estimators=100) #when rerunning, fix a seed
+                rfc = RandomForestClassifier(n_jobs=-1, n_estimators=100, random_state=42) #when rerunning, fix a seed
                 rfc.fit(X_train, y_train)
                 mean_accuracy = rfc.score(X_test, y_test)
                 y_pred = rfc.predict(X_test)
@@ -53,8 +53,8 @@ for level in [1, 2]:
             os.mkdir(results_path)
 
         mean_accuracy_path = os.path.join(results_path,
-                                          'cv_mean_accuracy_level_' + str(level) + '_' + alphabet_mode + '.csv')
-        f1_score_path = os.path.join(results_path, 'cv_f1_score_level_' + str(level) + '_' + alphabet_mode + '.csv')
+                                          'mean_accuracy_level_' + str(level) + '_' + alphabet_mode + '.csv')
+        f1_score_path = os.path.join(results_path, 'f1_score_level_' + str(level) + '_' + alphabet_mode + '.csv')
 
         mean_accuracy_df.to_csv(mean_accuracy_path, index=True, header=True)
         f1_score_df.to_csv(f1_score_path, index=True, header=True)

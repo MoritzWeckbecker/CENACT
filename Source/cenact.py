@@ -74,7 +74,6 @@ def get_smiles_list(smiles_path):
     return smiles_list
 
 
-# TODO: FROM CMANGOES, CHANGE NEEDED!!!
 def plot_molecule_graph(G, labels, folder_name='graph', graph_num=None):
     """
     plot_molecule_graph creates a visual representation of the graph and saves
@@ -243,6 +242,8 @@ def generate_imgs_from_encoding(normalized_encoding, print_progress=False, folde
     Returns:
         None: None
     """
+    if alphabet_mode == 'with_hydrogen':
+        element_alphabet = ['H', 'C', 'N', 'O', 'S']
 
     if print_progress:
         clear_output(wait=True)
@@ -260,7 +261,7 @@ def generate_imgs_from_encoding(normalized_encoding, print_progress=False, folde
         x_fig_dim = max(encoding.shape[0] / 2, 6)
         y_fig_dim = max(encoding.shape[1] / 5, 10)
         plt.figure(figsize=(x_fig_dim, y_fig_dim))
-        plt.title('Protein ' + str(name) + ',Encoding til level ' + str(level) + alphabet_mode, fontsize=26)
+        plt.title('Compound ' + str(name) + ', Encoding til level ' + str(level) + ' | element alphabet: ' + alphabet_mode, fontsize=18)
         ax = plt.gca()
         ax.axes.xaxis.set_ticks([])
         ax.axes.yaxis.set_ticks([])
@@ -285,7 +286,7 @@ def generate_imgs_from_encoding(normalized_encoding, print_progress=False, folde
         create_dir(subdir_name)
         filename = os.path.join(subdir_name, str(name) + '.jpg')
 
-        plt.savefig(filename)
+        plt.savefig(filename,bbox_inches='tight')
         plt.close()
 
     print('Saved images to folder ' + foldername, '\n')
@@ -422,7 +423,7 @@ def main():
     allowed_images = [0, 1]
 
     argument_parser.add_argument('input_file', type=pathlib.Path, help=input_help)
-    argument_parser.add_argument('--hydrogen', type=str, help=alphabet_mode_help,
+    argument_parser.add_argument('--alphabet_mode', type=str, help=alphabet_mode_help,
                                  choices=allowed_alphabet_mode, default='without_hydrogen')
     argument_parser.add_argument('--level', type=int, help=level_help, default=2)
     argument_parser.add_argument('--image', type=int, help=image_help, choices=allowed_images, default=0)
