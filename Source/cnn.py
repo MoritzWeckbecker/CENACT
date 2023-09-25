@@ -50,7 +50,7 @@ def f1(y_true, y_pred):
     r = recall(y_true, y_pred)
     return 2 * ((p * r) / (p + r + K.epsilon()))
 
-datasets_path = os.path.join('.', 'CMANGOES-2.0', 'Data', 'Encodings')
+datasets_path = os.path.join('..', 'Data', 'Encodings')
 datasets_folder = pathlib.Path(datasets_path)
 datasets_list = list(datasets_folder.iterdir())
 datasets_list = [os.path.basename(dataset) for dataset in datasets_list]
@@ -60,16 +60,15 @@ f1_score_df = pd.DataFrame(np.nan, index=datasets_list, columns=range(5))
 
 epochs = 50  # for better result increase the epochs
 
-pre_path = os.path.join('.', 'CMANGOES-2.0', 'Results')
+pre_path = os.path.join('..', 'Results')
 if os.path.exists(pre_path) == False:
     os.mkdir(pre_path)
 
-results_path = os.path.join('.', 'CMANGOES-2.0', 'Results', 'csv')
+results_path = os.path.join('.', 'Results', 'CNN')
 if os.path.exists(results_path) == False:
     os.mkdir(results_path)
 
-#f1_score_path = os.path.join(results_path, 'cnn_f1_score_level_' + str(level) + '_' + alphabet_mode + '.csv')
-f1_score_path = os.path.join(results_path, 'cnn_f1_score_level_' + str(2) + '_' + 'with_hydrogen' + '.csv')
+f1_score_path = os.path.join(results_path, 'f1_score_level_' + str(2) + '_' + 'with_hydrogen' + '.csv')
 
 #for level in [1, 2]:
 for level in [2]:
@@ -79,8 +78,8 @@ for level in [2]:
             dataset = datasets_list[data_idx]
             print("Running dataset", data_idx + 1, "/", len(datasets_list), flush=True)
 
-            enc_path = os.path.join('.', 'CMANGOES-2.0', 'Data', 'Encodings', dataset, 'CENACT_level_' + str(level) + '_' + alphabet_mode + '.csv')
-            classes_path = os.path.join('.', 'CMANGOES-2.0', 'Data', 'Original_datasets', dataset, 'classes.txt')
+            enc_path = os.path.join('..', 'Data', 'Encodings', dataset, 'CENACT_level_' + str(level) + '_' + alphabet_mode + '.csv')
+            classes_path = os.path.join('..', 'Data', 'Original_datasets', dataset, 'classes.txt')
 
             X = pd.read_csv(enc_path)
             y = pd.read_csv(classes_path, header=None)
