@@ -1,9 +1,5 @@
 # TODO
 
-- check which datasets to add and add them from VSCode
-- rerun results
-- add benchmarking
-- add correlation analysis
 - finish readme
 - add license
 

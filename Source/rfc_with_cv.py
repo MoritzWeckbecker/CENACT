@@ -39,7 +39,7 @@ for level in [2]:
             for i, (train_index, test_index) in enumerate(cv.split(X, y)):
                 X_train, y_train = X.iloc[train_index,:], y[train_index]
                 X_test, y_test = X.iloc[test_index,:], y[test_index]
-                rfc = RandomForestClassifier(n_jobs=-1, n_estimators=100, random_state=42) #when rerunning, fix a seed
+                rfc = RandomForestClassifier(n_jobs=-1, n_estimators=100, random_state=42)
                 rfc.fit(X_train, y_train)
                 mean_accuracy = rfc.score(X_test, y_test)
                 y_pred = rfc.predict(X_test)
@@ -48,7 +48,7 @@ for level in [2]:
                 mean_accuracy_df.iat[data_idx, i] = mean_accuracy
                 f1_score_df.iat[data_idx, i] = f1
 
-        results_path = os.path.join('.', 'CMANGOES-2.0', 'Results')
+        results_path = os.path.join('.', 'CMANGOES-2.0', 'Results', 'csv')
         if os.path.exists(results_path) == False:
             os.mkdir(results_path)
 
