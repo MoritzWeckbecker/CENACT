@@ -17,6 +17,7 @@
 - [Moritz Weckbecker](https://www.github.com/MoritzWeckbecker)
 - [Zewen Yang](https://github.com/alwinyang91)
 - [Georges Hattab](https://github.com/ghattab)
+
 Created by the [Visualisation group](https://visualization.group/), which is part of the Centre for Artifical Intelligence in Public Health Research (ZKI-PH) of the Robert Koch-Institute
 
 ## Manuscript
@@ -103,7 +104,7 @@ You can add your own datasets to the pipeline by adding a folder under [Data/Ori
 
 ## License
 
-Licensed under the ([MIT LICENSE](./LICENSE)).
+Licensed under the [MIT LICENSE](./LICENSE).
 
 ## Contribution
 
