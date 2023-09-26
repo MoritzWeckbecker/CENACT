@@ -38,11 +38,11 @@ The example datasets which are used to evaluate CENACT are collecte from the [pe
 |[Source/benchmark.py](./Source/benchmark.py)|contains the code that benchmarks the runtime of the algorithm.
 |[Source/cnn.py](./Code/Machine_Learning.Rmd)|contains the code that does training and prediction based on the encoded datasets using a basic Convolutional Neural Network.
 
-## Getting Started
 ## Running the encoding for a single dataset
 Place yourself in the [Source](./Source) directory, then run the following command `python cenact.py --help` to see how to run the tool for a single dataset. The output of this option is presented here:
 
-> usage: CENACT [-h]
+```
+usage: CENACT [-h]
               [--alphabet_mode {without_hydrogen,with_hydrogen,data_driven}]
               [--level LEVEL] [--image {0,1}] [--show_graph SHOW_GRAPH]
               [--output_path OUTPUT_PATH]
@@ -84,6 +84,7 @@ optional arguments:
                         An optional path-like argument. For parsed paths, the
                         directory must exist beforehand. Default:
                         ./CENACT_Encodings
+```
 
 ## Running the encoding and prediction pipeline for all datasets
 To encode the datasets using CENACT, run the [Source/encoding.py](./Source/encoding.py) script. To get prediction scores using Random Forest Classifiers, run the [Source/rfc_with_cv.py](./Source/rfc_with_cv.py) script afterwards.
@@ -93,8 +94,10 @@ You can add your own datasets to the pipeline by adding a folder under [Data/Ori
 1. The sequences of the compounds for which a property should be predicted. Sequences should be saved in a file called seqs.fasta if their sequences are provided in FASTA format or seqs.smiles if their sequences are provided in SMILES format.
 2. The prediction array that contains for each compound either a 1 if the compound has the desired property, or a 0 if it lacks the desired property. The array should be saved in a filed called classes.txt with one entry per line.
 
-## Running
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
 
+### Contribution
+
+Any contribution intentionally submitted for inclusion in the work by you, shall be licensed under the MIT Licence.
