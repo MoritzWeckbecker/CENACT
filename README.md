@@ -1,16 +1,23 @@
-# TODO
-
-- finish readme
-- add license
-
 # Project Title
+### CENACT - Carbon-based Encoding of Neighbourhoods with Atom Count Tables
 
-CENACT - Carbon-based Encoding of Neighbourhoods with Atom Count Tables
+## Table of Contents
+- [Authors](https://github.com/MoritzWeckbecker/CENACT#authors)
+- [Manuscript](https://github.com/MoritzWeckbecker/CENACT#manuscript)
+- [Dependencies](https://github.com/MoritzWeckbecker/CENACT#dependencies)
+- [Data](https://github.com/MoritzWeckbecker/CENACT#data)
+- [Code](https://github.com/MoritzWeckbecker/CENACT#code)
+- [Running the encoding for a single dataset](https://github.com/MoritzWeckbecker/CENACT#running-the-encoding-for-a-single-dataset)
+- [Running the encoding and prediction pipeline for all datasets](https://github.com/MoritzWeckbecker/CENACT#running-the-encoding-and-prediction-pipeline-for-all-datasets)
+- [License](https://github.com/MoritzWeckbecker/CENACT#license)
+- [Contribution](https://github.com/MoritzWeckbecker/CENACT#contribution)
 
 ## Authors
 
-- [@MoritzWeckbecker](https://www.github.com/MoritzWeckbecker)
-
+- [Moritz Weckbecker](https://www.github.com/MoritzWeckbecker)
+- [Zewen Yang](https://github.com/alwinyang91)
+- [Georges Hattab](https://github.com/ghattab)
+Created by the [Visualisation group](https://visualization.group/), which is part of the Centre for Artifical Intelligence in Public Health Research (ZKI-PH) of the Robert Koch-Institute
 
 ## Manuscript
 This package is created for a paper currently in peer review. 
@@ -96,7 +103,7 @@ You can add your own datasets to the pipeline by adding a folder under [Data/Ori
 
 ## License
 
-[MIT](https://choosealicense.com/licenses/mit/)
+Licensed under the ([MIT LICENSE](./LICENSE)).
 
 ## Contribution
 
