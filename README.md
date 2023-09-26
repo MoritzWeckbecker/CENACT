@@ -34,7 +34,7 @@ Abstract:
 ## Dependencies
 
 ## Data
-The example datasets which are used to evaluate CENACT are collecte from the [peptidereactor](https://doi.org/10.1093/nargab/lqab039) [repository](https://github.com/spaenigs/peptidereactor/tree/master/data). We took all datasets from that repository and placed them at [Data/Original_datasets/](Data/Original_datasets/). Each data set has a separate README file that contains the additional information of that data set. For the comparison between CENACT and its predecessor encoding ([CMANGOES](https://github.com/ghattab/CMANGOES)), we collected additional datasets which can only be handled by these molecular encodings but not by the encodings in [peptidereactor](https://doi.org/10.1093/nargab/lqab039).
+The example datasets which are used to evaluate CENACT are collected from the [peptidereactor](https://doi.org/10.1093/nargab/lqab039) [repository](https://github.com/spaenigs/peptidereactor/tree/master/data). We took all d50 atasets from that repository and placed them at [Data/Original_datasets/](Data/Original_datasets/). Each dataset has a separate README file that contains the additional information of that data set. For the comparison between CENACT and its predecessor encoding ([CMANGOES](https://github.com/ghattab/CMANGOES)), we collected 12 additional datasets which can only be handled by these molecular encodings but not by the encodings in [peptidereactor](https://doi.org/10.1093/nargab/lqab039).
 
 ## Code
 **Code for running encoding and prediction-related tasks**
@@ -115,8 +115,8 @@ You can add your own datasets to the pipeline by adding a folder under [Data/Ori
 
 ## License
 
-Licensed under the [MIT LICENSE](./LICENSE).
+Licensed under [Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)](./LICENSE).
 
 ## Contribution
 
-Any contribution intentionally submitted for inclusion in the work by you, shall be licensed under the MIT Licence.
+Any contribution intentionally submitted for inclusion in the work by you, shall be licensed under Attribution-NonCommercial 4.0 International (CC BY-NC 4.0).
