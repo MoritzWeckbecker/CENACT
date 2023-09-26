@@ -98,6 +98,6 @@ You can add your own datasets to the pipeline by adding a folder under [Data/Ori
 
 [MIT](https://choosealicense.com/licenses/mit/)
 
-### Contribution
+## Contribution
 
 Any contribution intentionally submitted for inclusion in the work by you, shall be licensed under the MIT Licence.
