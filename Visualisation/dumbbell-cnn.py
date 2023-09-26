@@ -5,8 +5,6 @@ import numpy as np
 import matplotlib.patches as mpatches
 plt.rcParams.update({'font.size': 12})
 
-os.chdir('..')
-
 dataset_selection = [
     'ace_vaxinpad',
     'acp_anticp',
@@ -83,13 +81,13 @@ rki_grey = RKI_colors[1]
 rki_orange = RKI_colors[-1]
 
 file_CENACT_cnn = 'f1_score_level_2_with_hydrogen.csv'
-results_path_CENACT_cnn = os.path.join('.', 'Results', 'CNN', file_CENACT_cnn)
+results_path_CENACT_cnn = os.path.join('..', 'Results', 'CNN', file_CENACT_cnn)
 
 CENACT_cnn_f1 = pd.read_csv(results_path_CENACT_cnn, index_col=0)
 CENACT_cnn_f1 = CENACT_cnn_f1.loc[dataset_selection]
 
 file_CENACT = 'f1_score_level_2_with_hydrogen.csv'
-results_path_CENACT = os.path.join('.', 'Results', 'csv', file_CENACT)
+results_path_CENACT = os.path.join('..', 'Results', 'csv', file_CENACT)
 
 CENACT_f1 = pd.read_csv(results_path_CENACT, index_col=0)
 CENACT_f1 = CENACT_f1.loc[dataset_selection]
@@ -129,4 +127,4 @@ CENACT_cnn_patch = mpatches.Patch(color=rki_blue, label='CENACT with Convolution
 CENACT_patch = mpatches.Patch(color=rki_grey, label='CENACT with Random Forest Classifier')
 plt.legend(handles=[CENACT_patch, CENACT_cnn_patch], fontsize = 'xx-large')
 
-plt.savefig('Visualisation/dumbbell_cnn.png', dpi=300)
+plt.savefig('./dumbbell_cnn.png', dpi=300)

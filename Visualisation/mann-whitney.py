@@ -1,9 +1,6 @@
 import scipy.stats as stats
 import pandas as pd
 import os
-import seaborn as sns
-import matplotlib.pyplot as plt
-import matplotlib.patches as mpatches
 import numpy as np
 
 os.chdir('..')
@@ -13,17 +10,14 @@ def prep(file,  dir = 'Results/csv'):
     df = pd.read_csv(results_path, index_col=0)
     return df
 
-#hyd1_df = prep('rerun_complete_cv_f1_score_level_1_with_hydrogen.csv')
-#nohyd1_df = prep('rerun_complete_cv_f1_score_level_1_without_hydrogen.csv')
-#dd1_df = prep('rerun_complete_cv_f1_score_level_1_data_driven.csv')
 hyd2_df = prep('f1_score_level_2_with_hydrogen.csv')
 nohyd2_df = prep('f1_score_level_2_without_hydrogen.csv')
 dd2_df = prep('f1_score_level_2_data_driven.csv')
 
-bin_shi = prep('complete_cv_f1_score_binary_shifted_levels_1_and_2.csv', 'Results/CMANGOES')
-bin_cen = prep('complete_cv_f1_score_binary_centered_levels_1_and_2.csv', 'Results/CMANGOES')
-dis_shi = prep('complete_cv_f1_score_discretized_shifted_levels_1_and_2.csv', 'Results/CMANGOES')
-dis_cen = prep('complete_cv_f1_score_discretized_centered_levels_1_and_2.csv', 'Results/CMANGOES')
+bin_shi = prep('f1_score_binary_shifted_levels_1_and_2.csv', 'Results/CMANGOES')
+bin_cen = prep('f1_score_binary_centered_levels_1_and_2.csv', 'Results/CMANGOES')
+dis_shi = prep('f1_score_discretized_shifted_levels_1_and_2.csv', 'Results/CMANGOES')
+dis_cen = prep('f1_score_discretized_centered_levels_1_and_2.csv', 'Results/CMANGOES')
 
 alpha = 0.05
 

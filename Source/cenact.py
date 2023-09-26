@@ -106,6 +106,17 @@ def plot_molecule_graph(G, labels, folder_name='graph', graph_num=None):
 
 
 def direct_neighbors(vertices_list, graph):
+    """
+    direct_neighbors provides the direct neighbours for a collection of vertices
+    without repeats.
+    Args:
+        vertices_list (list of int): Numbers representing vertices in graph.
+        graph (networkx.graph): Graph object displaying the intermediary molecular
+        graph.
+    Returns:
+        nb (list): Vertices which neighbor the vertices provided in the input in
+        the input graph.
+    """
     if type(vertices_list) == int:
         vertices_list = [vertices_list]
 
@@ -117,6 +128,19 @@ def direct_neighbors(vertices_list, graph):
 
 
 def dict_neighbors(vertex, graph, level=1, remove_carbon_neighbors=True):
+    """
+    dict_neighbors provides a dictionary, containing the neighboring vertices as
+    a list for each level.
+    Args:
+        vertex (int): Vertex for which neighbors shall be calculated.
+        graph (network.graph): The molecular graph.
+        level (int, optional): Up to which level the neighborhoods shall be calculated.
+        remove_carbon_neighbors (bool, optional): If set to True, any path that goes
+        through another C in the carbon chain gets truncated. That way, no atom
+        is included in the neighborhoods of multiple carbons.
+    Returns:
+        nb_dict (dict): Contains for each level a list of the neighboring vertices.
+    """
     elements = nx.get_node_attributes(graph, 'element')
     carbon_list = [v for v in graph.nodes() if elements[v] == 'C']
 
@@ -146,6 +170,17 @@ def dict_neighbors(vertex, graph, level=1, remove_carbon_neighbors=True):
 
 
 def dict_neighbors_elements(nb_dict, elements):
+    """
+    dict_neighbours_elements turns the vertices in the dictionary of neighboorhoods
+    into the corresponding elements.
+    Args:
+        nb_dict (dict): Contains for each level a list of the neighboring vertices.
+        elements (list): List describing which vertex in the graph corresponds to
+        which atom type.
+    Returns:
+        element_dict (dict): Contins for each level a list of the atoms contained in
+        the neighborhood.
+    """
     element_dict = {}
     for l in nb_dict.keys():
         element_dict[l] = [elements[v] for v in nb_dict[l]]
@@ -154,6 +189,19 @@ def dict_neighbors_elements(nb_dict, elements):
 
 
 def create_enc_df(level, graph, remove_carbon_neighbors=True, element_alphabet=['C', 'N', 'O', 'S']):
+    """
+    create_enc_df creates the atom count table.
+    Args:
+        level (int): Up to which level neighborhoods shall be collected.
+        graph (networkx.graph): The molecular graph.
+        remove_carbon_neighbors (bool, optional): If set to True, any path that goes
+        through another C in the carbon chain gets truncated. That way, no atom
+        is included in the neighborhoods of multiple carbons.
+        element_alphabet (list of str, optional): Contains which elements are included in the 
+        atom count table.
+    Returns:
+        enc_df (pandas.DataFrame): The atom count table.
+    """
     elements = graph.nodes('element')
 
     # create dataframe of correct size
@@ -189,6 +237,17 @@ def create_enc_df(level, graph, remove_carbon_neighbors=True, element_alphabet=[
 
 
 def shift_padding(enc_df, col_nr, element_alphabet=['C', 'N', 'O', 'S']):
+    """
+    shift_padding adds columns of zeros to the encoding so that all encodings in
+    one dataset have the same size.
+    Args:
+        enc_df (pandas.DataFrame): The original atom count table.
+        col_nr (int): The desired number of columns.
+        element_alphabet (list of str): Contains which elements are included in the 
+        atom count table.
+    Returns:
+        enc_df_padd (pandas.DataFrame): The padded atom count table.
+    """
     col_curr = len(enc_df.columns)
     col_diff = col_nr - col_curr
 
@@ -206,6 +265,14 @@ def shift_padding(enc_df, col_nr, element_alphabet=['C', 'N', 'O', 'S']):
 
 
 def normalize_df(enc_df):
+    """
+    normalize_df normalized the dataframe so that its biggest entry is 1 and its
+    smallest is 0.
+    Args:
+        enc_df (pandas.DataFrame): The original atom count table.
+    Returns:
+        enc_df / max_entry (pandas.DataFrame): The normalised atom count table.
+    """
     max_entry = enc_df.to_numpy().max()
     return enc_df / max_entry
 

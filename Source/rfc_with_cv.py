@@ -6,7 +6,7 @@ import numpy as np
 import os
 import pathlib
 
-datasets_path = os.path.join('.', 'CMANGOES-2.0', 'Data', 'Encodings')
+datasets_path = os.path.join('..', 'Data', 'Encodings')
 datasets_folder = pathlib.Path(datasets_path)
 datasets_list = list(datasets_folder.iterdir())
 datasets_list = [os.path.basename(dataset) for dataset in datasets_list]
@@ -24,9 +24,9 @@ for level in [2]:
             dataset = datasets_list[data_idx]
             print('Running dataset', data_idx + 1, '/', len(datasets_list))
 
-            encoding_data_path = os.path.join('.', 'CMANGOES-2.0', 'Data', 'Encodings', dataset,
+            encoding_data_path = os.path.join('..', 'Data', 'Encodings', dataset,
                                               'CENACT_level_' + str(level) + '_' + alphabet_mode + '.csv')
-            classes_path = os.path.join('.', 'CMANGOES-2.0', 'Data', 'Original_datasets',
+            classes_path = os.path.join('..', 'Data', 'Original_datasets',
                                         dataset, 'classes.txt')
 
             X = pd.read_csv(encoding_data_path)
@@ -48,7 +48,7 @@ for level in [2]:
                 mean_accuracy_df.iat[data_idx, i] = mean_accuracy
                 f1_score_df.iat[data_idx, i] = f1
 
-        results_path = os.path.join('.', 'CMANGOES-2.0', 'Results', 'csv')
+        results_path = os.path.join('..', 'Results', 'csv')
         if os.path.exists(results_path) == False:
             os.mkdir(results_path)
 

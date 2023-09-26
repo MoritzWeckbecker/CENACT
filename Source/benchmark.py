@@ -6,14 +6,14 @@ from timeit import default_timer as timer
 import numpy as np
 
 runs = 5
-benchmark_path = os.path.join('.', 'CMANGOES-2.0', 'Results', 'Benchmark', '3_benchmark_runs_' + str(runs) + '.csv')
+benchmark_path = os.path.join('..', 'Results', 'Benchmark', 'benchmark_runs_' + str(runs) + '.csv')
 
 def benchmark():
-    datasets_path = os.path.join('.', 'CMANGOES-2.0', 'Data', 'Original_datasets')
+    datasets_path = os.path.join('..', 'Data', 'Original_datasets')
     datasets_folder = pathlib.Path(datasets_path)
     datasets_list = list(datasets_folder.iterdir())
 
-    encodings_path = os.path.join('.', 'CMANGOES-2.0', 'Data', 'Encodings')
+    encodings_path = os.path.join('..', 'Data', 'Encodings')
     if os.path.exists(encodings_path) == False:
         os.mkdir(encodings_path)
 

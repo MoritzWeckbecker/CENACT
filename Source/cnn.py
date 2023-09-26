@@ -1,7 +1,3 @@
-# This Python 3 environment comes with many helpful analytics libraries installed
-# It is defined by the kaggle/python docker image: https://github.com/kaggle/docker-python
-# For example, here's several helpful packages to load in
-
 import numpy as np # linear algebra
 import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
 import seaborn as sns
@@ -17,16 +13,12 @@ import os
 import pathlib
 
 from sklearn.metrics import confusion_matrix
-import itertools
 
-from keras.utils.np_utils import to_categorical # convert to one-hot-encoding
 from keras.models import Sequential
 from keras.layers import Dense, Dropout, Flatten, Conv2D, MaxPool2D
-from keras.optimizers import RMSprop,Adam
+from keras.optimizers import Adam
 from keras.preprocessing.image import ImageDataGenerator
-from keras.callbacks import ReduceLROnPlateau
 
-# f1-score function taken from https://datascience.stackexchange.com/questions/45165/how-to-get-accuracy-f1-precision-and-recall-for-a-keras-model
 def recall(y_true, y_pred):
     true_positives = K.sum(K.round(K.clip(y_true * y_pred, 0, 1)))
     true_positives = tf.cast(true_positives, dtype=tf.float64)
@@ -54,25 +46,22 @@ datasets_path = os.path.join('..', 'Data', 'Encodings')
 datasets_folder = pathlib.Path(datasets_path)
 datasets_list = list(datasets_folder.iterdir())
 datasets_list = [os.path.basename(dataset) for dataset in datasets_list]
-#datasets_list = ['ace_vaxinpad']
 
 f1_score_df = pd.DataFrame(np.nan, index=datasets_list, columns=range(5))
 
-epochs = 50  # for better result increase the epochs
+epochs = 100
 
 pre_path = os.path.join('..', 'Results')
 if os.path.exists(pre_path) == False:
     os.mkdir(pre_path)
 
-results_path = os.path.join('.', 'Results', 'CNN')
+results_path = os.path.join('..', 'Results', 'CNN')
 if os.path.exists(results_path) == False:
     os.mkdir(results_path)
 
 f1_score_path = os.path.join(results_path, 'f1_score_level_' + str(2) + '_' + 'with_hydrogen' + '.csv')
 
-#for level in [1, 2]:
 for level in [2]:
-    #for alphabet_mode in ['without_hydrogen', 'with_hydrogen', 'data_driven']:
     for alphabet_mode in ['with_hydrogen']:
         for data_idx in range(len(datasets_list)):
             dataset = datasets_list[data_idx]
@@ -97,7 +86,6 @@ for level in [2]:
             print("Dataset normalised and reshaped.", flush=True)
 
             for i in range(5):
-                # Train-Test split -> need to replace with a cross-validation split
                 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, train_size=0.8, random_state=i, shuffle=True, stratify=None)
                 X_val, X_test, y_val, y_test = train_test_split(X_test, y_test, test_size=0.5, train_size=0.5, random_state=i, shuffle=True, stratify=None)
 
@@ -116,10 +104,6 @@ for level in [2]:
                 model.add(MaxPool2D(pool_size=(2,2), strides=(2,2)))
                 model.add(Dropout(0.25))
                 #
-                #model.add(Conv2D(filters = 16, kernel_size = (3,3),padding = 'Same',
-                #                activation ='relu'))
-                #model.add(MaxPool2D(pool_size=(2,2), strides=(2,2)))
-                #model.add(Dropout(0.25))
                 # fully connected
                 model.add(Flatten())
                 model.add(Dense(256, activation = "relu"))

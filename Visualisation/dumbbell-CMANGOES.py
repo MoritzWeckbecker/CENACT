@@ -94,14 +94,14 @@ RKI_colors = ['#005EB8','#71BAFE', '#F5F5F5', '#FECA76', '#B87200']
 rki_blue = RKI_colors[0]
 rki_orange = RKI_colors[-1]
 
-file_CMANGOES = 'complete_cv_f1_score_discretized_shifted_levels_1_and_2.csv'
-results_path_CMANGOES = os.path.join('.', 'CMANGOES', 'Results', file_CMANGOES)
+file_CMANGOES = 'f1_score_discretized_shifted_levels_1_and_2.csv'
+results_path_CMANGOES = os.path.join('..', 'Results', 'CMANGOES', file_CMANGOES)
 
 CMANGOES_f1 = pd.read_csv(results_path_CMANGOES, index_col=0)
 CMANGOES_f1 = CMANGOES_f1.loc[dataset_selection]
 
-file_CENACT = 'rerun_complete_cv_f1_score_level_2_data_driven.csv' #try different encodings
-results_path_CENACT = os.path.join('.', 'CMANGOES-2.0', 'Results', file_CENACT)
+file_CENACT = 'f1_score_level_2_data_driven.csv'
+results_path_CENACT = os.path.join('..', 'Results', 'csv', file_CENACT)
 
 CENACT_f1 = pd.read_csv(results_path_CENACT, index_col=0)
 CENACT_f1 = CENACT_f1.loc[dataset_selection]
@@ -140,4 +140,4 @@ CMANGOES_patch = mpatches.Patch(color=rki_orange, label='Baseline (CMANGOES)')
 CENACT_patch = mpatches.Patch(color=rki_blue, label='Alternative (CENACT)')
 plt.legend(handles=[CENACT_patch, CMANGOES_patch], fontsize = 'xx-large')
 plt.subplots_adjust(top=0.95, right=0.95)
-plt.savefig('Visualisations_CENACT/dumbbell-CMANGOES.png', dpi=300)
+plt.savefig('./dumbbell-CMANGOES.png', dpi=300)

@@ -4,12 +4,12 @@ import cenact
 from joblib import Parallel, delayed
 
 def encode_all_datasets():
-    datasets_path = os.path.join('.', 'CMANGOES-2.0', 'Data', 'Original_datasets')
+    datasets_path = os.path.join('..', 'Data', 'Original_datasets')
     datasets_folder = pathlib.Path(datasets_path)
     datasets_list = list(datasets_folder.iterdir())
     datasets_list = [str(path).split("\\")[-1] for path in datasets_list]
 
-    encodings_path = os.path.join('.', 'CMANGOES-2.0', 'Data', 'Encodings')
+    encodings_path = os.path.join('..', 'Data', 'Encodings')
     if os.path.exists(encodings_path) == False:
         os.mkdir(encodings_path)
 
@@ -33,13 +33,13 @@ def encode_all_datasets():
 # version of function that only calculates encoding if there is no folder of the name yet
 
 def encode_all_datasets_var():
-    datasets_path = os.path.join('.', 'CMANGOES-2.0', 'Data', 'Original_datasets')
+    datasets_path = os.path.join('..', 'Data', 'Original_datasets')
     datasets_folder = pathlib.Path(datasets_path)
     datasets_list = list(datasets_folder.iterdir())
     datasets_list = [str(path).split("\\")[-1] for path in datasets_list]
 
 
-    encodings_path = os.path.join('.', 'CMANGOES-2.0', 'Data', 'Encodings')
+    encodings_path = os.path.join('..', 'Data', 'Encodings')
     if os.path.exists(encodings_path) == False:
         os.mkdir(encodings_path)
 
@@ -72,12 +72,12 @@ def encode_parallel(smiles, level, element_alphabet):
     return enc_df
 
 def encode_all_datasets_parallel():
-    datasets_path = os.path.join('.', 'CMANGOES-2.0', 'Data', 'Original_datasets')
+    datasets_path = os.path.join('..', 'Data', 'Original_datasets')
     datasets_folder = pathlib.Path(datasets_path)
     datasets_list = list(datasets_folder.iterdir())
     datasets_list = [str(path).split('\\')[-1] for path in datasets_list]
 
-    encodings_path = os.path.join('.', 'CMANGOES-2.0', 'Data', 'Encodings')
+    encodings_path = os.path.join('..', 'Data', 'Encodings')
     if os.path.exists(encodings_path) == False:
         os.mkdir(encodings_path)
 
