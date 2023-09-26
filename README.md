@@ -18,7 +18,7 @@
 - [Zewen Yang](https://github.com/alwinyang91)
 - [Georges Hattab](https://github.com/ghattab)
 
-Created by the [Visualisation group](https://visualization.group/), which is part of the Centre for Artifical Intelligence in Public Health Research (ZKI-PH) of the Robert Koch-Institute
+Created by the [Visualisation group](https://visualization.group/), which is part of the Centre for Artifical Intelligence in Public Health Research (ZKI-PH) of the Robert Koch-Institute.
 
 ## Manuscript
 This package is created for a paper currently in peer review. 
@@ -34,9 +34,10 @@ Abstract:
 ## Dependencies
 
 ## Data
-The example datasets which are used to evaluate CENACT are collecte from the [peptidereactor](https://doi.org/10.1093/nargab/lqab039) [repository](https://github.com/spaenigs/peptidereactor/tree/master/data). We took all datasets from that repository and placed them at [Data/Original_datasets/](Data/Original_datasets/). Each data set has a separate README file that contains the additional information of that data set. For the comparison between CENACT and its predecessor encoding, CMANGOES, we collected additional datasets which can only be handled by these molecular encodings but not by the encodings in [peptidereactor](https://doi.org/10.1093/nargab/lqab039).
+The example datasets which are used to evaluate CENACT are collecte from the [peptidereactor](https://doi.org/10.1093/nargab/lqab039) [repository](https://github.com/spaenigs/peptidereactor/tree/master/data). We took all datasets from that repository and placed them at [Data/Original_datasets/](Data/Original_datasets/). Each data set has a separate README file that contains the additional information of that data set. For the comparison between CENACT and its predecessor encoding ([CMANGOES](https://github.com/ghattab/CMANGOES)), we collected additional datasets which can only be handled by these molecular encodings but not by the encodings in [peptidereactor](https://doi.org/10.1093/nargab/lqab039).
 
 ## Code
+**Code for running encoding and prediction-related tasks**
 |Script|Description|
 |---|---|
 |[Source/](./Source/)|contains all scripts necessary to run the tool.
@@ -45,6 +46,16 @@ The example datasets which are used to evaluate CENACT are collecte from the [pe
 |[Source/rfc_with_cv.py](./Source/rfc_with_cv.py)|contains the code that does training and prediction based on the encoded datasets using Random Forest Classifiers with Cross-Validation splits.
 |[Source/benchmark.py](./Source/benchmark.py)|contains the code that benchmarks the runtime of the algorithm.
 |[Source/cnn.py](./Code/Machine_Learning.Rmd)|contains the code that does training and prediction based on the encoded datasets using a basic Convolutional Neural Network.
+
+**Code for creating visualisations**
+|Script|Description|
+|---|---|
+|[Visualisation/](./Visualisation/)|contains all scripts necessary to create visualisations as well as the visualisations themselves.
+|[Visualisation/mann-whitney.py](./Visualisation/mann-whitney.py)|contains the code that calculates whether the differences in prediction F1-scores for CENACT and CMANGOES are significant using a [Mann-Whitney U test](https://en.wikipedia.org/wiki/Mann%E2%80%93Whitney_U_test).
+|[Visualisation/donut.py](./Visualisation/donut.py)|contains the code to visualise the previously calculated signifcance results using a donut chart.
+|[Visualisation/dumbbell-CMANGOES.py](./Visualisation/dumbbell-CMANGOES.py)|contains the code that creates a dumbbell chart comparing F1-scores for CENACT and CMANGOES encodings.
+|[Visualisation/dumbbell-cnn.py](./Visualisation/dumbbell-cnn.py)|contains the code that creates a dumbbell chart comparing F1-scores for CENACT encoding calculated with a Random Forest Classifier and a Convolutional Neural Network.
+|[Visualisation/benchmark.ipynb](./Visualisation/benchmark.ipynb)|contains the code that visualises the runtime of the encoding in relation to the original file size using a scatterplot.
 
 ## Running the encoding for a single dataset
 Place yourself in the [Source](./Source) directory, then run the following command `python cenact.py --help` to see how to run the tool for a single dataset. The output of this option is presented here:
