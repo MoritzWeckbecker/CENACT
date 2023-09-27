@@ -22,6 +22,8 @@ dataset_selection = [
     'amp_gonzales',
     'amp_iamp2l',
     'amp_modlamp',
+    'amy_albase',
+    'amy_hex',
     'atb_antitbp',
     'atb_iantitb',
     'avp_amppred',
