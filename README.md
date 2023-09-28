@@ -32,6 +32,23 @@ Abstract:
  The approach is domain- and task-agnostic and can be applied to all organic molecules including unnatural and exotic amino acids as well as cyclic peptides and larger proteins, which we demonstrate in our experiments. The new encoding was developed as a Python package (CENACT), the source code and corresponding datasets can be found at [https://github.com/MoritzWeckbecker/CENACT](https://github.com/MoritzWeckbecker/CENACT).
 
 ## Dependencies
+The code is written in Python 3.7.4 and tested on Linux with the following libraries installed:
+
+|Library|Version|
+|---|---|
+|altair|5.0.1|
+|biopython|1.78|
+|ipython|5.8.0|
+|keras|2.11.0|
+|matplotlib|3.5.3|
+|networkx||
+|numpy|1.21.6|
+|openbabel|3.1.1|
+|pandas|1.3.5|
+|periodictable|1.6.1|
+|pysmiles|1.0.2|
+|scikit-learn|0.24.2|
+|tensorflow|2.11.0|
 
 ## Data
 The example datasets which are used to evaluate CENACT are collected from the [peptidereactor](https://doi.org/10.1093/nargab/lqab039) [repository](https://github.com/spaenigs/peptidereactor/tree/master/data). We took all d50 atasets from that repository and placed them at [Data/Original_datasets/](Data/Original_datasets/). Each dataset has a separate README file that contains the additional information of that data set. For the comparison between CENACT and its predecessor encoding ([CMANGOES](https://github.com/ghattab/CMANGOES)), we collected 12 additional datasets which can only be handled by these molecular encodings but not by the encodings in [peptidereactor](https://doi.org/10.1093/nargab/lqab039).
