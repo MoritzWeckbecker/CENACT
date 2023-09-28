@@ -41,7 +41,7 @@ The code is written in Python 3.7.4 and tested on Linux with the following libra
 |ipython|5.8.0|
 |keras|2.11.0|
 |matplotlib|3.5.3|
-|networkx||
+|networkx|2.6.3|
 |numpy|1.21.6|
 |openbabel|3.1.1|
 |pandas|1.3.5|
