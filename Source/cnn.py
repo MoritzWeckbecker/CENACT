@@ -1,8 +1,6 @@
 import numpy as np # linear algebra
 import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
-import seaborn as sns
 from sklearn.model_selection import train_test_split
-import matplotlib.pyplot as plt
 # import warnings
 import warnings
 # filter warnings
@@ -11,8 +9,6 @@ import keras.backend as K
 import tensorflow as tf
 import os
 import pathlib
-
-from sklearn.metrics import confusion_matrix
 
 from keras.models import Sequential
 from keras.layers import Dense, Dropout, Flatten, Conv2D, MaxPool2D
