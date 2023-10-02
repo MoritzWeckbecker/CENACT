@@ -14,7 +14,6 @@
  
 | Description                                                               | Reference                         |
 |---------------------------------------------------------------------------|-----------------------------------|
-| Evaluation of in silico tools for the prediction of protein and
-    peptide aggregation on diverse datasets. | https://doi.org/10.1093/bib/ |
+| Evaluation of in silico tools for the prediction of protein and peptide aggregation on diverse datasets. | https://doi.org/10.1093/bib/ |
 
    
